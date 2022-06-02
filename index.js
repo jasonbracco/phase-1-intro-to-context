@@ -80,27 +80,9 @@ function allWagesFor(singleEmployeeRecord){
 }
 
 function calculatePayroll(arrayOfEmployees){
-    console.log(arrayOfEmployees)
-    let dateArray = []
-    let employeeArray = []
-    for(let i=0;i<arrayOfEmployees.length;i++){
-        let eachEmployee = arrayOfEmployees[i]
-        employeeArray.push(eachEmployee)
-            for(let i=0;i<eachEmployee.timeInEvents.length;i++){
-                let eachDate = eachEmployee.timeInEvents[i].date
-                dateArray.push(eachDate)
-            }
-    }
-    let totalWages = []
-    console.log(dateArray)
-    console.log(employeeArray)
-    employeeArray.forEach(element => {
-        for(let i=0;i<dateArray.length;i++)
-            totalWages.push(wagesEarnedOnDate(element, dateArray[i]))
-    })
-    console.log(totalWages)
+
     let initialValue = 0
-    let sumOfTotalWages = totalWages.reduce((previousValue, currentValue) => previousValue + currentValue, initialValue)
+    let sumOfTotalWages = arrayOfEmployees.reduce((previousValue, currentValue) => previousValue + allWagesFor(currentValue), initialValue)
     return sumOfTotalWages
 }
 
