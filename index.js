@@ -80,6 +80,7 @@ function allWagesFor(singleEmployeeRecord){
 }
 
 function calculatePayroll(arrayOfEmployees){
+    console.log(arrayOfEmployees)
     let dateArray = []
     let employeeArray = []
     for(let i=0;i<arrayOfEmployees.length;i++){
